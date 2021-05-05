@@ -65,5 +65,22 @@
 
             $conn = $db->Close();
         }
+
+        public function deletePeserta($idPeserta){
+            $db = new DB();
+            $conn = $db->Connect();
+
+            try {
+
+                $deletePeserta = "DELETE FROM Peserta WHERE id_peserta = $idPeserta";
+                $conn->exec($deletePeserta);
+                echo "<script>alert('Data Peserta $idPeserta telah terhapus');window.location='../index.php'</script>";
+            
+            } catch (PDOException $e) {
+                echo $deletePeserta."<br />".$e->getMessage();
+            }
+
+            $conn = $db->Close();
+        }
     }
 ?>
