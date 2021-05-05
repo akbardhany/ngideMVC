@@ -1,5 +1,5 @@
 <?php
-    include './database.php';
+    require 'database.php';
 
     class Model{
         public function createPeserta($namaPeserta, $jkPeserta, $kategoriPeserta){
