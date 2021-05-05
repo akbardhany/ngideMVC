@@ -42,6 +42,12 @@
                 $mdl->updatePeserta($idPeserta, $upNamaPeserta, $upJKPeserta, $upKategoriPeserta);
 
                 break;
+
+            case 'deleteSiswa':
+                $idPeserta = $_POST['idPeserta'];
+
+                $mdl->deletePeserta($idPeserta);
+                break;
             
             default:
                 # code...
