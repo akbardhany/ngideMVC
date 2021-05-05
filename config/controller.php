@@ -18,4 +18,24 @@
             }
         }
     }
+
+    if (isset($_POST['submit'])) {
+        $actionForm = $_POST['actionForm'];
+        $mdl = new Model();
+
+        switch ($actionForm) {
+            case 'formPeserta':
+                $namaPeserta    = $_POST['namaPeserta'];
+                $jkPeserta      = $_POST['jkPeserta'];
+                $kategoriPeserta= $_POST['kategoriPeserta'];
+
+                $mdl->createPeserta($namaPeserta, $jkPeserta, $kategoriPeserta);
+                
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
 ?>
