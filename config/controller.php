@@ -30,7 +30,17 @@
                 $kategoriPeserta= $_POST['kategoriPeserta'];
 
                 $mdl->createPeserta($namaPeserta, $jkPeserta, $kategoriPeserta);
-                
+
+                break;
+
+            case 'formUpdatePeserta':
+                $idPeserta          = $_POST['idPeserta'];
+                $upNamaPeserta      = $_POST['namaPeserta'];
+                $upJKPeserta        = $_POST['jkPeserta'];
+                $upKategoriPeserta  = $_POST['kategoriPeserta'];
+
+                $mdl->updatePeserta($idPeserta, $upNamaPeserta, $upJKPeserta, $upKategoriPeserta);
+
                 break;
             
             default:
