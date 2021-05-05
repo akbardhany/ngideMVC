@@ -48,5 +48,22 @@
 
             $conn = $db->Close();
         }
+
+        public function updatePeserta($idPeserta, $upNamaPeserta, $upJKPeserta, $upKategoriPeserta){
+            $db = new DB();
+            $conn = $db->Connect();
+
+            try {
+
+                $updatePeserta = "UPDATE Peserta SET nama_peserta='$upNamaPeserta', jk_peserta='$upJKPeserta', kategori_peserta='$upKategoriPeserta' WHERE id_peserta=$idPeserta";
+                $conn->exec($updatePeserta);
+                echo "<script>alert('Data Peserta $upNamaPeserta telah diperbarui');window.location='../index.php'</script>";
+  
+            } catch (PDOException $e) {
+                echo $updatePeserta."<br />".$e->getMessage();
+            }
+
+            $conn = $db->Close();
+        }
     }
 ?>
