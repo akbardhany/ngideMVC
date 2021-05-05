@@ -43,15 +43,17 @@
 
                 break;
 
-            case 'deleteSiswa':
+            case 'deletePeserta':
                 $idPeserta = $_POST['idPeserta'];
 
                 $mdl->deletePeserta($idPeserta);
                 break;
             
             default:
-                # code...
+                echo "switch error";
                 break;
         }
+    }else{
+        echo "yhak";
     }
 ?>

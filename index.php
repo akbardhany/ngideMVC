@@ -55,5 +55,51 @@
             </table>
         </fieldset>
     </form>
+    <br />
+    <fieldset style="width:50%">
+        <legend>Show Data Peserta</legend>
+        <table border=1>
+            <tr>
+                <td>Nama Peserta</td>
+                <td>Gender</td>
+                <td>Kategori</td>
+                <td colspan="2">Action</td>
+            </tr>
+            <?php
+                require_once './config/controller.php';
+                $resCont = new Results();
+                $resCont->resultsPeserta();
+                foreach ($resCont->readPesertas as $readPeserta) {
+            ?>
+            <tr>
+                <td>
+                    <?php echo $readPeserta[1]; ?>
+                </td>
+                <td>
+                    <?php echo $readPeserta[2]; ?>
+                </td>
+                <td>
+                    <?php echo $readPeserta[3]; ?>
+                </td>
+                <td>
+                    <form action="./update-peserta.php" method="POST">
+                        <input type="hidden" name="actionForm" value="formUpdatePeserta" />
+                        <input type="hidden" name="idPeserta" value="<?php echo $readPeserta[0];?>" />
+                        <input type="submit" name="update" value="Update">
+                    </form>
+                </td>
+                <td>
+                    <form action="./config/controller.php" method="POST">
+                        <input type="hidden" name="actionForm" value="deletePeserta" />
+                        <input type="hidden" name="idPeserta" value="<?php echo $readPeserta[0];?>" />
+                        <input type="submit" name="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            <?php
+                }
+            ?>
+        </table>
+    </fieldset>
 </body>
 </html>
