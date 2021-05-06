@@ -53,7 +53,5 @@
                 echo "switch error";
                 break;
         }
-    }else{
-        echo "yhak";
     }
 ?>
